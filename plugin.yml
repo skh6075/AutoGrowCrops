@@ -1,0 +1,7 @@
+name: AutoCrops
+main: skh6075\autocrops\AutoCrops
+author: AvasKr
+version: 1.0.0
+api: 3.10.0
+website: https://github.com/GodVas
+load: POSTWORLD
