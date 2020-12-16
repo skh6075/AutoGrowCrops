@@ -10,4 +10,4 @@
  * [x] Melon_stem Block.
  * [x] Beetroot Block.
  * [x] Cactus Block.
- * [] CacaoBean Block.
+ * [ ] CacaoBean Block.
