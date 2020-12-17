@@ -31,19 +31,15 @@ class EventListener implements Listener{
 
         if (!$event->isCancelled()) {
             if (in_array($block->getId(), [BlockIds::FARMLAND, BlockIds::SAND])) {
-                var_dump("block is farmland.");
                 $block = $block->getSide(Vector3::SIDE_UP);
                 if (!isset(CropTypes::CROPS[$item->getId()])) {
-                    var_dump("no crop item");
                     return;
                 }
                 if ($this->plugin->getCropData(posToHash($block)) instanceof CropData) {
-                    var_dump("isset cropdata");
                     return;
                 }
                 $timing = time() + $this->plugin->getCropTiming();
                 $this->plugin->addCropData(posToHash($block), CropTypes::CROPS[$item->getId()], $timing);
-                var_dump("good");
             }
         }
     }
