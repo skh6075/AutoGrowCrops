@@ -40,7 +40,6 @@ class AutoCrops extends PluginBase{
     }
 
     public function onEnable(): void{
-        var_dump("yes");
         $this->saveResource("crops.json");
         $this->saveResource("setting.json");
         $this->config = json_decode(file_get_contents($this->getDataFolder() . "setting.json"), true);
@@ -55,12 +54,10 @@ class AutoCrops extends PluginBase{
             foreach (self::$cropData as $hash => $cropData) {
                 if (time() >= $cropData->getTiming()) {
                     $cropData->setTiming(time() + $this->getCropTiming());
-                    var_dump("good");
                     $bool = $cropData->onUpdate();
                     if ($bool)
                         unset(self::$cropData[$hash]);
                 }
-                var_dump("now: " . time() . "  /  max: " . $cropData->getTiming());
             }
         }), $this->getUpdateTick());
     }
